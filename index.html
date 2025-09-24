@@ -74,7 +74,6 @@
              <!-- Card 4: PDF -->
             <div class="bg-white rounded-xl shadow-md p-6 flex items-center justify-start transition-transform transform hover:scale-105">
                 <div class="bg-red-100 rounded-full p-4 mr-5">
-                   <!-- (UPDATED) Changed icon and color for PDF -->
                    <svg class="w-8 h-8 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                    </svg>
@@ -220,6 +219,7 @@
 
                     loadingIndicator.classList.add('hidden');
                     populateFilters(allData);
+                    calculateAndDisplayKPIs(allData); // (UPDATED) Calculate KPIs once with all data
                     processAndRenderData({ resetPage: true });
                     dataTable.classList.remove('hidden');
                     paginationControls.classList.remove('hidden');
@@ -281,10 +281,9 @@
 
             filteredAndSortedData = processedData;
 
-            // 3. Update KPIs
-            calculateAndDisplayKPIs(filteredAndSortedData);
+            // (REMOVED) KPI calculation is no longer here
 
-            // 4. Render current page
+            // 3. Render current page
             renderCurrentPage();
         }
 
